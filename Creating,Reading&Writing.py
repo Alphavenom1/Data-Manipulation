@@ -10,14 +10,7 @@ fruits = pd.DataFrame({'Apples':[30] ,'Bananas':[21]})
 
 fruit_sales =pd.DataFrame({'Apples':[35,41],'Bananas':[21,34]},index=['2017 Sales','2018 Sales'])
 
-#Create a variable ingredients with a Series that looks like:
-
-Flour     4 cups
-Milk       1 cup
-Eggs     2 large
-Spam       1 can
-Name: Dinner, dtype: object
-
+#Create a variable ingredients with a Series
 ingredients =pd.Series(['4 cups','1 cup','2 large','1 can'],index=['Flour','Milk','Eggs','Spam'],name='Dinner')
 
 #read the following csv dataset of wine reviews into a DataFrame called reviews
