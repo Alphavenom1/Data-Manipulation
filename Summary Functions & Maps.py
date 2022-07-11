@@ -21,6 +21,20 @@ centered_price = reviews.price-reviews.price.mean()
 maxratio_index=(reviews.points/reviews.price).idxmax()
 bargain_wine=reviews.loc[maxratio_index,'title']
 #Create a Series descriptor_counts counting how many times each of these two words appears in the description column in the dataset. 
-tropcount = reviews.description.map(lambda desc: "tropical" in desc).sum()
-fruitycount = reviews.description.map(lambda desc: "fruity" in desc).sum()
-descriptor_counts = pd.Series([tropcount,fruitycount], index=['tropical', 'fruity'])
+fruit_count=reviews.description.map(lambda description:"fruity"in description).sum()
+tropical_count=reviews.description.map(lambda description:"tropical"in description).sum()
+descriptor_counts=pd.Series([tropical_count,fruit_count],index=["tropical wines ","fruity wines"])
+descriptor_counts
+
+#reate a series star_ratings with the number of stars corresponding to each review in the dataset.
+def stars(row):
+    if row.points>=95:
+        return 3
+    elif row.country=="Canada":
+        return 3
+    elif row.points>=85:
+        return 2
+    else:return 1
+star_ratings=reviews.apply(stars,axis="columns")
+star_ratings
+
