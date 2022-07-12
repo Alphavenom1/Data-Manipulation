@@ -19,7 +19,11 @@ n_missing_prices =pd.isnull(reviews.price).sum()
 print(n_missing_prices) #8996
 
 #What are the most common wine-producing regions?
+ reviews.region_1.fillna("Unknown")
+ reviews_per_region =reviews.groupby('region_1').size().sort_values(ascending=False)
+ reviews_per_region                                                     
 
+#or
 
-
-#
+ reviews_per_region =reviews.region_1.fillna("Unknown").value_counts().sort_values(ascending=False)
+ reviews_per_region
